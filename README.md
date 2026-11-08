@@ -1,12 +1,13 @@
 # Writeups — Hacking Club
 
-Registros de máquinas de aprendizado da Hacking Club. Cada arquivo descreve o caminho que foi **validado**, as decisões tomadas durante o teste e as evidências necessárias para reproduzi-lo. Os textos contêm spoilers da exploração.
+Registros de CTFs e desafios da Hacking Club. Cada arquivo descreve o caminho que foi **validado**, as decisões tomadas durante o teste e as evidências necessárias para reproduzi-lo. Os textos contêm spoilers da exploração.
 
 ## Índice
 
 | Máquina | Tipo | Acesso obtido | Writeup |
 | --- | --- | --- | --- |
-| Stick | CTF / pentest de aprendizado | Usuário e root | [stick.md](stick.md) |
+| Stick | CTF | Usuário e root | [stick.md](stick.md) |
+| JWT None Attack | Desafio | Administrador da aplicação | [jwt-none-attack.md](jwt-none-attack.md) |
 
 ## Ambiente usado
 

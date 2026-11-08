@@ -4,7 +4,7 @@
 | --- | --- |
 | Plataforma | Hacking Club |
 | Máquina | Stick |
-| Tipo | CTF / pentest de aprendizado |
+| Tipo | CTF |
 | Data do teste | 8 de novembro de 2026 |
 | Resultado | Administrador da aplicação, SSH como usuário comum e root no host |
 
