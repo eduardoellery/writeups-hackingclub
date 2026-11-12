@@ -8,6 +8,7 @@ Registros de CTFs e desafios da Hacking Club. Cada arquivo descreve o caminho qu
 | --- | --- | --- | --- |
 | Stick | CTF | Usuário e root | [stick.md](stick.md) |
 | JWT None Attack | Desafio | Administrador da aplicação | [jwt-none-attack.md](jwt-none-attack.md) |
+| Crux | CTF | Owner da aplicação, usuário e root | [crux.md](crux.md) |
 
 ## Ambiente usado
 
@@ -19,5 +20,6 @@ Os testes são conduzidos com **Codex no Windows**, conectado por **SSH** ao Kal
 - Um arquivo Markdown por máquina: `<maquina>.md`, em minúsculas e com hífens quando necessário.
 - O `README.md` funciona como índice. Se um writeup precisar de imagens no futuro, elas podem ficar em `assets/<maquina>/`.
 - Flags, senhas, chaves, cookies e tokens são sempre apresentados como `[REDACTED]`. IPs temporários podem ser substituídos por `<IP_DA_MAQUINA>` para manter os comandos reutilizáveis.
+- Novos textos seguem o cabeçalho, a tabela de metadados, o aviso de spoilers e as seções de ambiente, reconhecimento, exploração, cadeia resumida e lições aprendidas dos writeups existentes.
 
 Os testes devem respeitar o escopo e as regras da plataforma correspondente.
