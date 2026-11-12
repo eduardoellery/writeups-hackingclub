@@ -9,6 +9,7 @@ Registros de CTFs e desafios da Hacking Club. Cada arquivo descreve o caminho qu
 | Stick | CTF | Usuário e root | [stick.md](stick.md) |
 | JWT None Attack | Desafio | Administrador da aplicação | [jwt-none-attack.md](jwt-none-attack.md) |
 | Crux | CTF | Owner da aplicação, usuário e root | [crux.md](crux.md) |
+| Ouroboros | CTF | Usuário; escalada não comprovada | [ouroboros.md](ouroboros.md) |
 
 ## Ambiente usado
 
