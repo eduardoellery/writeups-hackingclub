@@ -1,0 +1,19 @@
+# Evidências privadas e artefatos temporários de testes
+evidence/
+private/
+*.pcap
+*.pcapng
+*.har
+*.log
+*.sqlite
+*.db
+*.bak
+*.cookie
+*.cookies
+*.key
+*.pem
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+AGENTS.md
