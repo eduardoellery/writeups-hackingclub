@@ -5,7 +5,7 @@
 | Plataforma | Hacking Club |
 | Máquina | Ouroboros |
 | Tipo | CTF Windows / Active Directory |
-| Data do teste | 12 de novembro de 2026 |
+| Data do teste | 12 e 14 de novembro de 2026 |
 | Resultado | Acesso como `svc_mgmt` e flag de usuário; escalada a `SYSTEM` não comprovada |
 
 > **Spoilers:** este texto descreve somente etapas validadas. Flags e senhas foram ocultadas.
@@ -46,6 +46,16 @@ Na sessão, `C:\Users\svc_mgmt\Desktop\user.txt` continha a flag de usuário **[
 ## Limite da validação de privilégio
 
 A descrição da máquina apontava para abuso de `DnsAdmins` com `ServerLevelPluginDll`. Nesta instância, a consulta LDAP mostrou o grupo `DnsAdmins` **sem membros** e `whoami /groups` não incluiu esse grupo no token de `svc_mgmt`. A consulta `dnscmd . /info /serverlevelplugindll` retornou `ERROR_ACCESS_DENIED (5)`. A ACL do grupo também não mostrou permissão de escrita concedida a `svc_mgmt`. Portanto, não foi validado carregamento de DLL, execução como `SYSTEM` nem leitura da flag de root.
+
+### Retomada em 14 de novembro
+
+Com um novo IP temporário, repeti o AXFR e a consulta ao DSC Pull Server: a zona, a configuração e a credencial eram as mesmas. Uma coleta de ACLs do Active Directory não encontrou direitos de `svc_mgmt` sobre outros objetos. A sessão RDP confirmou novamente que o token contém apenas grupos de usuário comum, incluindo `Remote Desktop Users`; `DnsAdmins` continuava sem membros e `dnscmd` retornou `ERROR_ACCESS_DENIED`.
+
+Examinei os serviços, tarefas agendadas e arquivos da aplicação DSC. A aplicação em `C:\inetpub\PSDSCPullServer` servia o MOF por código em `Global.asax`; a conta atual não possuía escrita nessa pasta. As verificações locais não indicaram um serviço ou tarefa personalizados graváveis. Uma tentativa única de reutilizar a credencial em `Administrator` falhou.
+
+O serviço de impressão aceitou uma coerção PrinterBug e o host autenticou-se de volta como `MGMT01$` no listener de teste. O relay dessa autenticação para LDAP falhou: a sessão SMB solicitou assinatura. Uma segunda tentativa com remoção de MIC também falhou. Nenhuma permissão ou associação de grupo foi alterada. As verificações de PrintNightmare e NoPAC não indicaram vulnerabilidade explorável. A leitura direta de `C:\Users\Administrator\Desktop\root.txt` retornou `Access is denied`.
+
+**Estado após a retomada:** a flag de usuário continua comprovada; a chave de administrador e a flag de root não foram obtidas.
 
 ## Cadeia resumida
 
